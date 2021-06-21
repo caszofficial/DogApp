@@ -1,0 +1,42 @@
+
+
+.navigation {
+    display: flex;
+    height: 5vh;
+    background-color: #ff9100;
+    width: 40vw;
+    min-width: 50vw;
+    margin: auto;
+    justify-content: space-evenly;
+    list-style: none;
+    border-radius: 0 0 20px 20px;
+    transition: height, 500ms;
+    padding: 5px;
+}
+
+.navigation:hover {
+    height: 57px;
+    cursor: pointer;
+}
+
+.navigation li {
+    margin: 10px;
+    padding: 5px;
+    color: #000000;
+    text-align: center;
+    margin: auto;
+    
+}
+
+.navigation li a {
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: bold;
+    color: #000000;
+    transition: color, 500ms;
+}
+
+.navigation li a:hover{
+    color: white;
+}

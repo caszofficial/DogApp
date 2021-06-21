@@ -1,0 +1,66 @@
+.main {
+    background-image: url('../fondocards.jpg');
+    height: 100vh;
+}
+
+.dogDetail {
+    width: fit-content;
+    height: fit-content;
+    background-color: black;
+    margin: auto;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+.dogImage {
+    display: flex;
+    margin: auto;
+    width: 550px;
+    height: 300px;
+}
+
+.dogName {
+    text-align: center;
+    line-height: 0px;
+    word-wrap: break-word;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.dogTemp {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    word-wrap: break-word;
+}
+
+.dogWeight {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.dogHeight {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.dogLife {
+    text-align: center;
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.tempBD {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    color: #ffffff;
+}

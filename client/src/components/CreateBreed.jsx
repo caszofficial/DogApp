@@ -50,8 +50,8 @@ function CreateBreed() {
     const [input, setInput] = useState({
         name: '',
         height: '',
-        weight: '',
         age: '',
+        weight: '',
         temperament: []
     })
 

@@ -1,50 +1,77 @@
 .mainDiv {
-    width: 70vw;
-    background-color: #000000c4;
-    height: fit-content;
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
+    width: 80vw;
     margin: auto;
-    border-radius: 20px;
-    color: #ff9100;
-    text-shadow: 2px 2px #000000;
-    font-size: 25px;
-    font-weight: bold;
+    /* background-color: #000000c4; */
+    border: 2px solid #ff9100;
+    height: fit-content;
+    display: grid;
+    grid-template-areas: "alpha weight temps source";
     text-align: center;
-    align-items: center;
+    color: #ff9100;
+    text-shadow: 2px 2px 1px #000000;
+    border-radius: 5px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.alphabetical {
+    grid-area: alpha;
+    margin: auto;
+}
+
+.weight {
+    grid-area: weight;
+    margin: auto;
+}
+
+.temperaments {
+    grid-area: temps;
+    margin: auto;
+}
+
+.source {
+    grid-area: source;
+    margin: auto;
 }
 
 .btn {
     width: fit-content;
     height: fit-content;
     background-color: transparent;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     color: #ff9100;
-    text-shadow: 2px 2px #000000;
+    text-shadow: 2px 2px 1px #000000;
     border: 1px solid #ff9100;
     border-radius: 5px;
     margin: 10px;
-    padding: 10px;
+    padding: 5px 15px;
+    transition: color, text-shadow 250ms;
 }
 
 .btn:hover {
-    color: white;
+    color: #000000;
+    text-shadow: 2px 2px 1px #ff9100;
     cursor: pointer;
 }
 
 .dropdown {
-    border: none;
-    background-color:transparent;
+    border: 1px solid #ff9100;
+    border-radius: 5px;
+    background-color: transparent;
     color: #ff9100;
-    text-shadow: 2px 2px #000000;
-    font-size: 25px;
-    padding: 10px;
+    text-shadow: 2px 2px 1px #000000;
+    font-size: 30px;
+    width: 150px;
+    font-weight: bold;
+    padding: 5px;
+    margin: auto;
 }
 
-.dropdown:focus{
-    outline: none;
+.dropdown:focus {
+    outline: none
+    
 }
 
 .dropdown option {
@@ -52,6 +79,7 @@
     color: #ff9100;
     text-shadow: 2px 2px #000000;
 }
+
 .dropdown option:hover {
     background-color: white;
     color: black;

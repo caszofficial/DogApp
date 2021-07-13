@@ -83,8 +83,8 @@ function Order() {
 
     return (
         <div  className={styles.mainDiv}>
-            <div>
-                <label>Order by: <br /> name</label>
+            <div className={styles.alphabetical}>
+                <label>Order by: name</label>
                 <br />
 
                 <button className={styles.btn} onClick={(e) => orderAsc(e)}>A-Z</button>
@@ -94,8 +94,8 @@ function Order() {
 
 
 
-            <div>
-                <label>Order by: <br /> weight</label>
+            <div  className={styles.weight}>
+                <label>Order by: weight</label>
                 <br />
 
                 <button className={styles.btn} onClick={(e) => orderLight(e)}>Weight - to +</button>
@@ -104,8 +104,9 @@ function Order() {
             </div>
 
 
-            <div>
+            <div  className={styles.temperaments}>
                 <form onSubmit={handleSubmit} >
+                    <label>Filter by temps </label><br />
                     <select onChange={handleChange} name="temperaments" value={selectedTemp} className={styles.dropdown}>
                         {temp?.map(t => {
                             return (
@@ -113,15 +114,17 @@ function Order() {
                             )
                         })}
                     </select>
-                    <br />
+                    
                     <button type="submit" className={styles.btn}> Filter</button>
                 </form>
             </div>
 
             
 
-           <div>
+           <div className={styles.source}>
                <form>
+                   <label>Source</label>
+                   <br />
                    <select onChange={handleSelect} className={styles.dropdown}>
                        <option value="''">Select</option>
                        <option value="DB">DB</option>

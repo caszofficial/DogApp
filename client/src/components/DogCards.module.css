@@ -11,13 +11,12 @@
 }
 
 .cardContainer {
-    background-color: #000000c7;
+    border: 2px solid #ff9100;
     width: 250px;
-    height: 450px;
-    margin: 20px;
+    height: 290px;
+    margin: 1px 5px;
     border-radius: 20px;
     padding: 10px;
-    border: 0.5px solid black;
     transition: box-shadow, 10ms;
     transition: border, 500ms;
 }
@@ -31,27 +30,19 @@
 
 .cardContainer img {
     width: 250px;
-    height: 190px;
+    height: 170px;
     display: flex;
     justify-content: center;
 }
 
 .cardName {
     text-align: center;
-    color: #ff9100;
-    text-shadow: 2px 2px #000000;
-    font-size: 30px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.cardTemperament {
+    color: #000000;
+    text-shadow: 2px 2px 1px #ff9100;
     font-size: 23px;
     font-weight: bold;
-    text-align: center;
-    color: #ff9100;
-    text-shadow: 2px 2px #000000;
     letter-spacing: 1px;
+    margin-bottom: 5px;
 }
 
 .pagination {
@@ -134,5 +125,19 @@
     background-color: #000000c7;
     border-radius: 50px;
     padding: 15px;
+}
 
+.detail p {
+    text-align: center;
+    /* margin: auto; */
+    font-size: 30px;
+    font-weight: bold;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    margin-top: 10px;
+    /* background-color: #ff9100; */
+    color: #000000;
+    text-shadow: 2px 2px 1px #ff9100;
+    /* width: fit-content; */
+    padding: 5px 15px;
 }

@@ -5,6 +5,7 @@ import { getTemp } from '../actions/actions';
 import axios from 'axios';
 import styles from './CreateBreed.module.css'
 import Nav from './Nav'
+import Footer from './Footer'
 
 function validateForm(input) {
     let errors = {};
@@ -57,7 +58,9 @@ function CreateBreed() {
     const dispatch = useDispatch();
 
     useEffect(() => {
+
         dispatch(getTemp())
+
     }, [])
 
     const temperaments = useSelector(state => state.temps)
@@ -134,117 +137,125 @@ function CreateBreed() {
 
     return (
         <div className={styles.main}>
-            <div className={styles.nav}>
+            
                 <Nav />
-            </div>
+           
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
 
-            <form onSubmit={handleSubmit}>
+            <div className={styles.form}>
+                <form onSubmit={handleSubmit}>
 
-                <div className={styles.cards}>
-                    <div>
-                        <p className={styles.inputNames}>Name</p>
+                    <div className={styles.cards}>
+                        <div>
+                            <p className={styles.inputNames}>Name</p>
 
-                        <input
-                            type="text"
-                            name="name"
-                            placeholder="Breed name"
-                            onChange={handleInput}
-                            required='required'
-                            onFocus={onFocus}
-                            value={input.name}
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Breed name"
+                                onChange={handleInput}
+                                required='required'
+                                onFocus={onFocus}
+                                value={input.name}
 
-                        ></input>
-                        <br />
-                        {errors.name && touched.name && (
-                            <p className={styles.errorMsg}>{errors.name}</p>
-                        )}
-                    </div>
-                    <br />
-
-                    <div >
-                        <p className={styles.inputNames}>Weight</p>
-                        <input
-                            type="text"
-                            name="weight"
-                            placeholder="Breed weight"
-                            onChange={handleInput}
-                            required='required'
-                            onFocus={onFocus}
-                            value={input.weight}
-
-                        ></input>
-                        {errors.weight && touched.weight && (
-                            <p className={styles.errorMsg}>{errors.weight}</p>
-                        )}
-                    </div>
-                    <br />
-
-                    <div >
-                        <p className={styles.inputNames}>Height</p>
-                        <input
-                            type="text"
-                            name="height"
-                            placeholder="Breed height"
-                            onChange={handleInput}
-                            required='required'
-                            onFocus={onFocus}
-                            value={input.height}
-
-                        ></input>
-                        {errors.height && touched.height && (
-                            <p className={styles.errorMsg}>{errors.height}</p>
-                        )}
-                    </div>
-                    <br />
-                    <div >
-                        <p className={styles.inputNames}>Life Span</p>
-                        <input
-                            type="text"
-                            name="age"
-                            placeholder="Breed life span"
-                            onChange={handleInput}
-                            required='required'
-                            onFocus={onFocus}
-                            value={input.age}
-
-                        ></input>
-                        {errors.age && touched.age && (
-                            <p className={styles.errorMsg}>{errors.age}</p>
-                        )}
-                    </div>
-
-                    <br />
-
-                    <div >
-                        <p className={styles.inputNames}>Temperaments</p>
-                        <select name="temperaments" onChange={(e) => handleSelect(e)} required value={input.temperament} className={styles.dropdown}>
-                            <option>
-                                Select
-                            </option>
-
-                            {temperaments?.map((e) => (
-                                <option value={e.id} key={e.id}>{e.name}</option>)
+                            ></input>
+                            <br />
+                            {errors.name && touched.name && (
+                                <p className={styles.errorMsg}>{errors.name}</p>
                             )}
-                        </select>
+                        </div>
+                        <br />
+
+                        <div >
+                            <p className={styles.inputNames}>Weight</p>
+                            <input
+                                type="text"
+                                name="weight"
+                                placeholder="Breed weight"
+                                onChange={handleInput}
+                                required='required'
+                                onFocus={onFocus}
+                                value={input.weight}
+
+                            ></input>
+                            {errors.weight && touched.weight && (
+                                <p className={styles.errorMsg}>{errors.weight}</p>
+                            )}
+                        </div>
+                        <br />
+
+                        <div >
+                            <p className={styles.inputNames}>Height</p>
+                            <input
+                                type="text"
+                                name="height"
+                                placeholder="Breed height"
+                                onChange={handleInput}
+                                required='required'
+                                onFocus={onFocus}
+                                value={input.height}
+
+                            ></input>
+                            {errors.height && touched.height && (
+                                <p className={styles.errorMsg}>{errors.height}</p>
+                            )}
+                        </div>
+                        <br />
+                        <div >
+                            <p className={styles.inputNames}>Life Span</p>
+                            <input
+                                type="text"
+                                name="age"
+                                placeholder="Breed life span"
+                                onChange={handleInput}
+                                required='required'
+                                onFocus={onFocus}
+                                value={input.age}
+
+                            ></input>
+                            {errors.age && touched.age && (
+                                <p className={styles.errorMsg}>{errors.age}</p>
+                            )}
+                        </div>
+
+                        <br />
+
+                        <div >
+                            <p className={styles.inputNames}>Temperaments</p>
+                            <select name="temperaments" onChange={(e) => handleSelect(e)} required value={input.temperament} className={styles.dropdown}>
+                                <option>
+                                    Select
+                                </option>
+
+                                {temperaments?.map((e) => (
+                                    <option value={e.id} key={e.id}>{e.name}</option>)
+                                )}
+                            </select>
+                        </div>
+                        <div className={styles.tempContainer}>
+                            {
+                                input.temperament.map(t => (
+                                    <p id={t} className={styles.temp}>
+                                        {getNames([t])}
+                                        <button onClick={(e) => deleteTemp(e, t)} className={styles.closeBtn}>x</button>
+                                    </p>
+                                ))
+                            }
+                        </div>
+                        <br />
+                        <br />
+                        <button type='submit' className={styles.btnSubmit}>
+                            Create breed
+                        </button>
                     </div>
-                    <div className={styles.tempContainer}>
-                        {
-                            input.temperament.map(t => (
-                                <p id={t} className={styles.temp}>
-                                    {getNames([t])}
-                                    <button onClick={(e) => deleteTemp(e, t)} className={styles.closeBtn}>x</button>
-                                </p>
-                            ))
-                        }
-                    </div>
-                    <br />
-                    <br />
-                    <button type='submit' className={styles.btnSubmit}>
-                        Create breed
-                    </button>
-                </div>
-            </form>
+                </form>
+            </div>
+            <Footer/>
         </div>
     )
 }

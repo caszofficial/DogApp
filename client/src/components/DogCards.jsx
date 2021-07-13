@@ -1,18 +1,11 @@
-
 import styles from './DogCards.module.css'
 import LazyLoad from 'react-lazyload'
-
 import React from 'react';
-
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getBreeds } from '../actions/actions';
 import image from '../perrito_panzon.jpg'
-
-
 import { Link } from 'react-router-dom';
-
-
 
 
 function DogCards() {
@@ -21,7 +14,9 @@ function DogCards() {
     const breed = useSelector((state) => state.breeds);
 
     const [currentPage, setCurrentPage] = useState(1)
+    // eslint-disable-next-line
     const [itemsPerPage, setitemsPerPage] = useState(8)
+    // eslint-disable-next-line
     const [pageNumberLimit, setpageNumberLimit] = useState(5)
     const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(5)
     const [minPageNumberLimit, setminPageNumberLimit] = useState(0)
@@ -65,7 +60,7 @@ function DogCards() {
 
     const dispatch = useDispatch();
 
-
+    // eslint-disable-next-line
     useEffect(() => {
         dispatch(getBreeds());
     }, []);
@@ -99,63 +94,6 @@ function DogCards() {
         const breedsToDisplay = array
         console.log('holaaaa', breedsToDisplay)
 
-
-        // if (!Array.isArray(breedsToDisplay)) {
-        //     return (
-        //     <div>
-        //         <p className={styles.msgError}>We coul askjdlsadkjdaldlskdjlad</p>
-        //         <img src={image} alt="Not Found"  height="400px" width="350px"/>
-        //     </div>
-
-        //     )
-        // } else {
-        //     return breedsToDisplay?.length ? (
-        //         breedsToDisplay.map(d => {
-        //             return (
-        //                 <div>
-
-        //                     <LazyLoad>
-        //                         <Link to={`/dogs/${d.id}`} style={{ color: "black", textDecoration: "none" }}>
-
-        //                             <br />
-        //                             <div className={styles.cardContainer}>
-        //                                 <div className={styles.cardName}>{d.name}</div>
-        //                                 <br />
-
-        //                                 {d.id.length ?
-
-        //                                     <LazyLoad><img src='https://phantom-marca.unidadeditorial.es/252acdd64f48851f815c16049a789f23/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188479459744.jpg' /></LazyLoad>
-
-        //                                     :
-
-        //                                     (d.id === 15 || d.id === 125 || d.id === 212) ?
-        //                                         <img src={'https://cdn2.thedogapi.com/images/' + d.reference_image_id + '.png'} alt="Not Found" />
-        //                                         :
-        //                                         <img src={'https://cdn2.thedogapi.com/images/' + d.reference_image_id + '.jpg'} alt="Not Found" />
-
-
-
-        //                                 }
-
-
-
-        //                                 {d.id.length ? <div className={styles.cardTemperament} ><b>Temperaments:</b> <br />{d.temperaments.map(t => {
-        //                                     return (
-        //                                         <p>{t.name}</p>
-        //                                     )
-        //                                 })}</div> : <div className={styles.cardTemperament} ><b>Temperaments:</b> <br />{d.temperament}</div>}
-        //                             </div></Link>
-        //                     </LazyLoad>
-
-
-
-
-        //                 </div >
-        //             )
-        //         })
-        //     ) : null
-        // }
-
         if (typeof breedsToDisplay === "string") {
             return (
                 <div className={styles.cardError}>
@@ -173,15 +111,13 @@ function DogCards() {
                         <div>
 
                             <LazyLoad>
-                                <Link to={`/dogs/${d.id}`} style={{ color: "black", textDecoration: "none" }}>
-
                                     <br />
                                     <div className={styles.cardContainer}>
                                         <div className={styles.cardName}>{d.name}</div>
-                                        <br />
+                                        
 
                                         {d.id.length ?
-
+                                            // eslint-disable-next-line
                                             <LazyLoad><img src='https://phantom-marca.unidadeditorial.es/252acdd64f48851f815c16049a789f23/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188479459744.jpg' /></LazyLoad>
 
                                             :
@@ -195,14 +131,16 @@ function DogCards() {
 
                                         }
 
+                                            <div className={styles.detail}>
+                                                <Link  to={`/dogs/${d.id}`} style={{ color: "black", textDecoration: "none" }}>
+                                                <p>
+                                                    Detail
+                                                </p>
+                                                </Link>
+                                            </div>
 
 
-                                        {d.id.length ? <div className={styles.cardTemperament} ><b>Temperaments:</b> <br />{d.temperaments.map(t => {
-                                            return (
-                                                <p>{t.name}</p>
-                                            )
-                                        })}</div> : <div className={styles.cardTemperament} ><b>Temperaments:</b> <br />{d.temperament}</div>}
-                                    </div></Link>
+                                    </div>
                             </LazyLoad>
 
 
@@ -222,9 +160,17 @@ function DogCards() {
 
     return (
         <div>
-            <br />
-            <br />
-            <br />
+            
+            
+            <div className={styles.main}>
+                {filteredBreeds?.length > 0 ?
+                    displayBreeds(filteredBreeds)
+                    :
+                    displayBreeds(currentItems)
+                }
+                {/* <Pagination breedsPerPage={breedsPerPage} totalBreeds={breeds.length} paginate={paginate} /> */}
+            </div>
+
             <div>
                 <ul className={styles.pagination}>
                     <li>
@@ -241,19 +187,6 @@ function DogCards() {
                         </button>
                     </li>
                 </ul>
-            </div>
-
-            
-            
-            <br />
-
-            <div className={styles.main}>
-                {filteredBreeds?.length > 0 ?
-                    displayBreeds(filteredBreeds)
-                    :
-                    displayBreeds(currentItems)
-                }
-                {/* <Pagination breedsPerPage={breedsPerPage} totalBreeds={breeds.length} paginate={paginate} /> */}
             </div>
 
         </div>

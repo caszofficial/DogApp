@@ -1,26 +1,16 @@
 .main {
-    background-image: url('../fondocards.jpg');
-    height: min-content;
+    background-color: #f1f1f1;
     min-height: 100vh;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    display: grid;
-    grid-template-areas: "nav nav nav" "main main main";
-}
-
-.nav {
-    grid-area: nav;
 }
 
 .cards {
-    grid-area: main;
     background-color: #000000b7;
     border-radius: 20px;
     margin: auto;
     width: 75vh;
     height: fit-content;
     padding: 30px;
+    margin-bottom: 100px;
 }
 
 .inputNames {
@@ -42,7 +32,6 @@
     border: none;
     border: 2px solid #ff9100;
     border-radius: 5px;
-    
 }
 
 .cards input::placeholder {
@@ -107,14 +96,23 @@
     display: flex;
     margin: auto;
     justify-content: center;
-    background-color: #ff9100;
-    color: #000000;
+    background-color: transparent;
+    color: #ff9100;
+    text-shadow: 2px 2px 1px #000000;
     font-size: 30px;
     text-align: center;
     font-weight: bold;
     border: none;
     border-radius: 5px;
     padding: 10px;
+    border: 1px solid #ff9100;
+}
+
+.btnSubmit:hover {
+    color: #000000;
+    text-shadow: 2px 2px 1px #ff9100;
+    background-color: transparent;
+    border: 1px solid #ff9100;
 }
 
 .errorMsg {
@@ -124,4 +122,8 @@
     font-weight: bold;
     text-shadow: 1px 1px #000000;
     letter-spacing: 1px;
+}
+
+.form {
+    margin: auto;
 }

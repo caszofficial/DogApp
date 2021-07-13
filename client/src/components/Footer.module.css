@@ -1,0 +1,28 @@
+.mainFooter {
+    background-color: #03001d;
+    display: flex;
+    justify-content: space-between;
+}
+
+.about {
+    margin: auto;
+    
+}
+.about p {
+    font-size: 25px;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 1px;
+    font-weight: bold;
+}
+
+.social {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+i {
+    font-size: 90px;
+    color: #ffffff;
+    margin: 20px;
+}

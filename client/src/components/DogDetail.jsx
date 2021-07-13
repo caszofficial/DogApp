@@ -4,6 +4,7 @@ import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {  getById } from '../actions/actions'
 import Nav from './Nav'
+import Footer from './Footer'
 import styles from './DogDetail.module.css'
 import LazyLoad from 'react-lazyload'
 
@@ -24,6 +25,7 @@ function DogDetail({ match }) {
 
     const breed = useSelector(state => state.breedsDetail)
 
+
     if (typeof breed?.id === 'string') {
         return (
             <div className={styles.main}>
@@ -40,12 +42,12 @@ function DogDetail({ match }) {
                     <p className={styles.dogName}><br />{breed?.name}</p>
     
                     <br />
-                    <br />
+                   
 
                     <img src="https://phantom-marca.unidadeditorial.es/252acdd64f48851f815c16049a789f23/resize/1320/f/jpg/assets/multimedia/imagenes/2021/04/19/16188479459744.jpg" alt="Not Found" width="550px" height="300px" />
 
                     <br />
-                    <br />
+                    
 
                     <p className={styles.dogTemp}>Temperament:</p>
                     {console.log(breed)}
@@ -69,10 +71,12 @@ function DogDetail({ match }) {
     
                 </div>
                 </LazyLoad>
+                <Footer/>
             </div>
     
         )
     } else {
+
         return (
             <div className={styles.main}>
                 <div>
@@ -115,6 +119,7 @@ function DogDetail({ match }) {
     
                 </div>
                 </LazyLoad>
+                <Footer/>
             </div>
     
         )
@@ -122,6 +127,7 @@ function DogDetail({ match }) {
 
     
 }
+
 // const mapStateToProps = state => {
 //     return {
 //         breedsDetail: state.breedsDetail,

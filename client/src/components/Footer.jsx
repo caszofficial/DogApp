@@ -19,7 +19,7 @@ function Footer() {
 
             <div className={styles.social}>
 
-                <a href="http://www.google.com" target="blank">
+                <a href="https://github.com/caszofficial" target="blank">
                     <i class="fab fa-github" ></i>
                 </a>
 
